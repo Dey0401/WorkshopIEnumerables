@@ -1,7 +1,7 @@
 ﻿
 namespace WorkshopIEnumerables.Logic
 {
-    internal class Matrix
+    public class Matrix
     {
     }
 }

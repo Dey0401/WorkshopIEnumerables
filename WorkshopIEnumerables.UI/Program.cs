@@ -1,8 +1,5 @@
 ﻿//using WorkshopIEnumerables.Logic;
 
-
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 int option = 0;
 
 do
@@ -51,19 +48,24 @@ void DecompositionOfNumbersIntoFactors()
         {
             if (number % divisor == 0)
             {
-                output += $"{number} | {divisor} \n";
+                if (number == 1)
+                {
+                    output += $"{number} \n";
+                }
+                else
+                {
+                    output += $"{number} | {divisor} \n";
+                }
                 number /= divisor;
-                //if (number == divisor)
-                //{
-                //    output += $"1 | ";
-                //}
+
+
             }
             else
             {
                 divisor++;
             }
         }
-
+        
         Console.WriteLine(output);
     }
 }
