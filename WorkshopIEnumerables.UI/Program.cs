@@ -1,4 +1,4 @@
-﻿//using WorkshopIEnumerables.Logic;
+﻿using WorkshopIEnumerables.Logic;
 
 int option = 0;
 
@@ -22,13 +22,35 @@ while (option != 0);
 #region Methods
 void MultiplyMatrices()
 {
-    throw new NotImplementedException();
-}
+    Console.WriteLine("Please enter m:");
+    int m = int.Parse(Console.ReadLine());
+    Console.WriteLine("Please enter n:");
+    int n = int.Parse(Console.ReadLine());
+    Console.WriteLine("Please enter p:");
+    int p = int.Parse(Console.ReadLine());
+
+    var matrixA = new Matrix();
+    var matrixB = new Matrix(); 
+    var matrixC = new Matrix();
+
+    matrixA.CreateArraysA(m, n);
+    matrixB.CreateArraysB(n, p);
+    matrixC.MatrixMultiplier(matrixA.CreateArraysA(m, n), matrixB.CreateArraysB(n, p), m , n ,p);
+    
+
+    Console.WriteLine($"*** A *** \n ");
+    matrixA.Imprint(matrixA.CreateArraysA(m, n));
+    Console.WriteLine($"*** B *** \n" +
+                      $"{matrixB.ToString()}");
+    Console.WriteLine($"*** C *** \n" +
+                      $"{matrixC.ToString()}");
+
+} //process
 
 void HourglassOfAmatrix()
 {
     throw new NotImplementedException();
-}
+} //Falta
 
 void DecompositionOfNumbersIntoFactors()
 {
@@ -50,7 +72,7 @@ void DecompositionOfNumbersIntoFactors()
             {
                 if (number == 1)
                 {
-                    output += $"{number} \n";
+                    output += $"{number} | \n";
                 }
                 else
                 {
@@ -75,12 +97,12 @@ void DecompositionOfNumbersIntoFactors()
 void ReapAHarvestWithTheChessKnight()
 {
     throw new NotImplementedException();
-}
+} //Falta
 
 void HorsesInConflict()
 {
     throw new NotImplementedException();
-}
+} //Falta
 
 int Menu()
 {
