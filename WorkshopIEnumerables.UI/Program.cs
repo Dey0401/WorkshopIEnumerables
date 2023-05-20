@@ -23,40 +23,50 @@ while (option != 0);
 void MultiplyMatrices()
 {
     Console.WriteLine("Please enter m:");
-    int m = int.Parse(Console.ReadLine());
+    int m = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Please enter n:");
-    int n = int.Parse(Console.ReadLine());
+    int n = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Please enter p:");
-    int p = int.Parse(Console.ReadLine());
+    int p = Convert.ToInt32(Console.ReadLine());
 
     var matrixA = new Matrix();
     var matrixB = new Matrix(); 
     var matrixC = new Matrix();
 
-    matrixA.CreateArraysA(m, n);
-    matrixB.CreateArraysB(n, p);
-    matrixC.MatrixMultiplier(matrixA.CreateArraysA(m, n), matrixB.CreateArraysB(n, p), m , n ,p);
-    
+    matrixA = new Matrix(matrixA.CreateArraysA(m, n)); 
+    matrixB = new Matrix(matrixB.CreateArraysB(n, p));    
+    matrixC = new Matrix(matrixC.MatrixMultiplier(matrixA.CreateArraysA(m, n), matrixB.CreateArraysB(n, p), m, n, p));
 
-    Console.WriteLine($"*** A *** \n ");
-    matrixA.Imprint(matrixA.CreateArraysA(m, n));
+
+    Console.WriteLine($"*** A *** \n " +
+                      $"{matrixA.ToString()}");
     Console.WriteLine($"*** B *** \n" +
                       $"{matrixB.ToString()}");
     Console.WriteLine($"*** C *** \n" +
                       $"{matrixC.ToString()}");
 
-} //process
+} //Listo
 
 void HourglassOfAmatrix()
 {
-    throw new NotImplementedException();
-} //Falta
+    var matrix = new Matrix();
+    var matrixHourglass = new Matrix();
+
+    Console.WriteLine("Please enter order matriz:");
+    int order = Convert.ToInt32(Console.ReadLine());
+
+    
+    Console.Write(matrix.ToString());
+    Console.WriteLine("******************");
+    Console.Write(matrixHourglass.ToStringHourglass(matrix.FillMatrix2x2(order)));
+    Console.Write(matrixHourglass.ToStringMatrixInverse(matrixHourglass.ToStringHourglassReves(matrix.FillMatrix2x2(order))));
+
+} //Listo Casi que no 
 
 void DecompositionOfNumbersIntoFactors()
 {
     Console.WriteLine("Please enter a whole number:");
-    string? resp = Console.ReadLine();
-    int number = int.Parse(resp);
+    int number = Convert.ToInt32(Console.ReadLine());
 
     Console.WriteLine($"The factors of the number {number} are:");
     Factoring(number);
@@ -90,8 +100,7 @@ void DecompositionOfNumbersIntoFactors()
         
         Console.WriteLine(output);
     }
-}
-
+} //Listo
 
 
 void ReapAHarvestWithTheChessKnight()
