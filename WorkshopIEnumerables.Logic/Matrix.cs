@@ -17,12 +17,13 @@ namespace WorkshopIEnumerables.Logic
             this._n = n;
             matriz = new int[N, N];
         }
+
+        #endregion
+        #region Constructors
         public Matrix(int[,] n)
         {
             matriz = n;
         }
-        #endregion
-        #region Constructors
         public Matrix(int rows, int columns)
         {
             matriz = new int[rows, columns];

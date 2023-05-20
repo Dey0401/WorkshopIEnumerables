@@ -49,19 +49,20 @@ void MultiplyMatrices()
 
 void HourglassOfAmatrix()
 {
-    var matrix = new Matrix();
     var matrixHourglass = new Matrix();
 
     Console.WriteLine("Please enter order matriz:");
     int order = Convert.ToInt32(Console.ReadLine());
 
-    
-    Console.Write(matrix.ToString());
-    Console.WriteLine("******************");
-    Console.Write(matrixHourglass.ToStringHourglass(matrix.FillMatrix2x2(order)));
-    Console.Write(matrixHourglass.ToStringMatrixInverse(matrixHourglass.ToStringHourglassReves(matrix.FillMatrix2x2(order))));
+    matrixHourglass = new Matrix(matrixHourglass.FillMatrix2x2(order));
+    Console.WriteLine("MATRIZ COMPLETA");
+    Console.Write(matrixHourglass.ToString());
+    Console.WriteLine("RELOJ DE ARENA");
+    Console.Write(matrixHourglass.ToStringHourglass(matrixHourglass.FillMatrix2x2(order)));
+    Console.Write(matrixHourglass.ToStringMatrixInverse(matrixHourglass.ToStringHourglassReves(matrixHourglass.FillMatrix2x2(order))));
 
 } //Listo Casi que no 
+
 
 void DecompositionOfNumbersIntoFactors()
 {
